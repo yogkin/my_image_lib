@@ -151,6 +151,20 @@ class MyImage extends StatelessWidget {
         filterQuality = null;
 
   ///网络图片加载加载
+  ///
+  ///[imageUrl] 图片网络地址
+  ///[width] 图片宽
+  ///[height] 图片高
+  ///[fit] 图片缩放方式
+  ///[cacheWidth] 图片缓存宽
+  ///[cacheHeight] 图片缓存高
+  ///[centerSlice] 图片切片
+  ///[placeholder] 图片加载时显示的图片
+  ///[progressIndicatorBuilder] 图片加载时显示的图片
+  ///[errorWidget] 图片加载失败时显示的图片
+  ///[placeholderFadeInDuration] 图片加载时显示的图片
+  ///[fadeOutDuration] 图片加载失败时显示的图片
+  ///[fadeOutCurve] 图片加载失败时显示的图片
   MyImage.network(this.imageUrl,
       {this.width,
       this.height,
@@ -204,7 +218,7 @@ class MyImage extends StatelessWidget {
         colorBlendMode: colorBlendMode,
         filterQuality: filterQuality,
       );
-    } else {
+    } else if (assetPath != null) {
       return Image.asset(
         assetPath,
         width: width,
@@ -214,6 +228,8 @@ class MyImage extends StatelessWidget {
         cacheHeight: cacheHeight,
         cacheWidth: cacheWidth,
       );
+    } else {
+      return Container();
     }
   }
 }
