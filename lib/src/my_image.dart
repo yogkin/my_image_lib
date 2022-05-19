@@ -165,32 +165,33 @@ class MyImage extends StatelessWidget {
   ///[placeholderFadeInDuration] 图片加载时显示的图片
   ///[fadeOutDuration] 图片加载失败时显示的图片
   ///[fadeOutCurve] 图片加载失败时显示的图片
-  MyImage.network(this.imageUrl,
-      {this.width,
-      this.height,
-      this.fit,
-      this.cacheWidth,
-      this.cacheHeight,
-      this.centerSlice,
-      this.assetPath,
-      this.imageBuilder,
-      this.placeholder,
-      this.progressIndicatorBuilder,
-      this.errorWidget,
-      this.placeholderFadeInDuration,
-      this.fadeOutDuration,
-      this.fadeOutCurve,
-      this.fadeInDuration,
-      this.fadeInCurve,
-      this.alignment,
-      this.repeat,
-      this.matchTextDirection,
-      this.httpHeaders,
-      this.useOldImageOnUrlChange,
-      this.color,
-      this.colorBlendMode,
-      this.filterQuality})
-      : assert(imageUrl != null);
+  MyImage.network(
+    this.imageUrl, {
+    this.width,
+    this.height,
+    this.fit,
+    this.cacheWidth,
+    this.cacheHeight,
+    this.centerSlice,
+    this.assetPath,
+    this.imageBuilder,
+    this.placeholder,
+    this.progressIndicatorBuilder,
+    this.errorWidget,
+    this.placeholderFadeInDuration,
+    this.fadeOutDuration = const Duration(milliseconds: 1000),
+    this.fadeOutCurve = Curves.easeOut,
+    this.fadeInDuration = const Duration(milliseconds: 500),
+    this.fadeInCurve = Curves.easeIn,
+    this.alignment = Alignment.center,
+    this.repeat = ImageRepeat.noRepeat,
+    this.matchTextDirection = false,
+    this.httpHeaders,
+    this.useOldImageOnUrlChange = false,
+    this.color,
+    this.colorBlendMode,
+    this.filterQuality = FilterQuality.low,
+  }) : assert(imageUrl != null);
 
   @override
   Widget build(BuildContext context) {
